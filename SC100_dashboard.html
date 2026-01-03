@@ -1208,5 +1208,62 @@
 </div>
 </main>
 </div>
+<!-- =========================================================
+  CONFIG - Dễ thay thế link
+  - BASE_PATH: đường dẫn gốc tới các file HTML khác (sidebar)
+  Ví dụ:
+    const BASE_PATH = "/compa-crm-public/";
+========================================================== -->
+<script>
+  // ====== CONFIG ======
+  const BASE_PATH = "/compa-crm-public/";
 
+  // ====== Helpers: apply sidebar links from data-href ======
+  (function applySidebarLinks() {
+    document.querySelectorAll('[data-href]').forEach(a => {
+      const p = a.getAttribute('data-href') || '';
+      // allow absolute URLs if user puts full link later
+      if (/^https?:\/\//i.test(p)) {
+        a.href = p;
+      } else {
+        a.href = BASE_PATH + p;
+      }
+    });
+  })();
+
+  // ====== View Switching (SC200 <-> SC210) ======
+  const viewChat = document.getElementById('view-chat');
+  const viewConnect = document.getElementById('view-connect');
+  const btnConnect = document.getElementById('btnConnectChannel');
+  const btnBack = document.getElementById('btnBackToChat');
+
+  function showView(view) {
+    if (view === 'connect') {
+      viewChat.classList.add('hidden');
+      viewConnect.classList.remove('hidden');
+    } else {
+      viewConnect.classList.add('hidden');
+      viewChat.classList.remove('hidden');
+    }
+  }
+
+  if (btnConnect) {
+    btnConnect.addEventListener('click', () => showView('connect'));
+  }
+  if (btnBack) {
+    btnBack.addEventListener('click', () => showView('chat'));
+  }
+
+  // Optional: support browser back/forward with hash
+  function syncHash() {
+    const h = (location.hash || '').replace('#','');
+    if (h === 'connect') showView('connect');
+    else showView('chat');
+  }
+  window.addEventListener('hashchange', syncHash);
+  // set default hash when user clicks
+  if (btnConnect) btnConnect.addEventListener('click', () => (location.hash = 'connect'));
+  if (btnBack) btnBack.addEventListener('click', () => (location.hash = 'chat'));
+  syncHash();
+</script>
 </body></html>
