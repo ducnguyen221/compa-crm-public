@@ -92,7 +92,7 @@
 <span class="material-icons-outlined text-2xl mb-1 group-hover:text-white transition-colors">email</span>
 <span class="text-[9px] font-medium tracking-wide">Email</span>
 </a>
-<a class="flex flex-col items-center justify-center group w-full py-2.5 rounded-xl text-slate-400 hover:bg-slate-800 hover:text-white transition-all duration-200" href="#" data-href="SC500_contact.html">
+<a class="flex flex-col items-center justify-center group w-full py-2.5 rounded-xl text-slate-400 hover:bg-slate-800 hover:text-white transition-all duration-200" href="#" data-href="S500_contact.html">
 <span class="material-icons-outlined text-2xl mb-1 group-hover:text-white transition-colors">contacts</span>
 <span class="text-[9px] font-medium tracking-wide">Liên hệ</span>
 </a>
@@ -100,15 +100,15 @@
 <span class="material-icons-outlined text-2xl mb-1 group-hover:text-white transition-colors">monetization_on</span>
 <span class="text-[9px] font-medium tracking-wide">Pipeline</span>
 </a>
-<a class="flex flex-col items-center justify-center group w-full py-2.5 rounded-xl text-slate-400 hover:bg-slate-800 hover:text-white transition-all duration-200" href="#" data-href="SC700_customer.html">
+<a class="flex flex-col items-center justify-center group w-full py-2.5 rounded-xl text-slate-400 hover:bg-slate-800 hover:text-white transition-all duration-200" href="#" data-href="SC600_customer.html">
 <span class="material-icons-outlined text-2xl mb-1 group-hover:text-white transition-colors">people</span>
 <span class="text-[9px] font-medium tracking-wide">Khách hàng</span>
 </a>
-<a class="flex flex-col items-center justify-center group w-full py-2.5 rounded-xl text-slate-400 hover:bg-slate-800 hover:text-white transition-all duration-200" href="#" data-href="SS800_marketing.html">
+<a class="flex flex-col items-center justify-center group w-full py-2.5 rounded-xl text-slate-400 hover:bg-slate-800 hover:text-white transition-all duration-200" href="#" data-href="SS700_marketing.html">
 <span class="material-icons-outlined text-2xl mb-1 group-hover:text-white transition-colors">campaign</span>
 <span class="text-[9px] font-medium tracking-wide">Marketing</span>
 </a>
-<a class="flex flex-col items-center justify-center group w-full py-2.5 rounded-xl text-slate-400 hover:bg-slate-800 hover:text-white transition-all duration-200" href="#" data-href="SC900_affiliate.html">
+<a class="flex flex-col items-center justify-center group w-full py-2.5 rounded-xl text-slate-400 hover:bg-slate-800 hover:text-white transition-all duration-200" href="#" data-href="SC800_affiliate.html">
 <span class="material-icons-outlined text-2xl mb-1 group-hover:text-white transition-colors">handshake</span>
 <span class="text-[9px] font-medium tracking-wide">Affiliate</span>
 </a>
@@ -163,7 +163,13 @@
 </div>
 </div>
 </header>
-<main class="flex-1 flex overflow-hidden bg-background-light dark:bg-background-dark">
+<main id="emailMain" class="flex-1 relative overflow-hidden bg-background-light dark:bg-background-dark">
+  <!-- =========================================================
+    VIEW: SC400_email - Hộp thư đến (Mặc định)
+    - Nút "+ Nguồn" -> chuyển sang SC410 (Gmail)
+  ========================================================== -->
+  <section id="view-inbox" data-view="inbox" class="absolute inset-0 flex overflow-hidden">
+
 <div class="w-[30%] min-w-[320px] max-w-sm flex flex-col border-r border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark">
 <div class="p-4 border-b border-border-light dark:border-border-dark space-y-4">
 <div class="flex items-center justify-between">
@@ -177,7 +183,7 @@
 <button class="w-10 h-full flex items-center justify-center rounded-lg border border-border-light dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 text-text-main-light dark:text-text-main-dark transition-colors" title="Soạn email mới">
 <span class="material-icons-outlined text-xl">edit</span>
 </button>
-<button class="h-full flex items-center justify-center gap-2 text-sm font-bold bg-primary hover:bg-sky-600 text-white px-4 rounded-lg transition-colors shadow-lg shadow-sky-500/30">
+<button id="btnAddEmailSource" type="button" data-view-target="gmail" class="h-full flex items-center justify-center gap-2 text-sm font-bold bg-primary hover:bg-sky-600 text-white px-4 rounded-lg transition-colors shadow-lg shadow-sky-500/30">
 <span class="material-icons-outlined text-xl">add</span> Nguồn
                         </button>
 </div>
@@ -532,6 +538,680 @@
 </div>
 </div>
 </div>
+
+  </section>
+
+  <!-- =========================================================
+    VIEW: SC410_email_gmail - Kết nối nguồn Gmail
+  ========================================================== -->
+  <section id="view-gmail" data-view="gmail" class="absolute inset-0 hidden flex overflow-hidden">
+
+<div class="w-[30%] min-w-[320px] max-w-sm flex flex-col border-r border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark z-10">
+<div class="flex flex-col border-b border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark">
+<div class="px-4 pt-4 pb-2">
+<button type="button" data-view-target="inbox" class="flex items-center gap-2 text-text-sub-light hover:text-primary transition-colors group">
+<span class="material-icons-outlined text-xl group-hover:text-primary transition-colors">arrow_back</span>
+<span class="font-bold text-lg text-text-main-light dark:text-text-main-dark group-hover:text-primary transition-colors">Hộp thư đến</span>
+</button>
+</div>
+<div class="px-4 pb-4 flex items-center gap-2">
+<button class="px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-primary text-xs font-bold border border-transparent transition-colors">
+                        Tất cả
+                    </button>
+<button class="px-3 py-1.5 rounded-lg bg-white dark:bg-transparent text-text-sub-light dark:text-text-sub-dark hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-800 text-xs font-medium border border-border-light dark:border-slate-700 transition-colors">
+                        Chưa kết nối
+                    </button>
+<button class="px-3 py-1.5 rounded-lg bg-white dark:bg-transparent text-text-sub-light dark:text-text-sub-dark hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-800 text-xs font-medium border border-border-light dark:border-slate-700 transition-colors">
+                        Lỗi kết nối
+                    </button>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto custom-scrollbar p-4 space-y-3 bg-slate-50/50 dark:bg-slate-900/50">
+<div data-view-target="gmail" role="button" tabindex="0" class="group flex items-center justify-between p-4 bg-white dark:bg-slate-800 border-2 border-primary rounded-xl cursor-pointer relative shadow-md shadow-slate-200/50 dark:shadow-none transition-all">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-red-50 dark:bg-red-900/20 flex items-center justify-center text-red-600 dark:text-red-400">
+<span class="material-icons text-2xl">mail</span>
+</div>
+<div>
+<h3 class="font-bold text-sm text-text-main-light dark:text-text-main-dark">Gmail</h3>
+<span class="text-xs text-green-600 dark:text-green-400 font-medium flex items-center gap-1.5 mt-0.5">
+<span class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span> Đã kết nối
+<span class="text-text-sub-light dark:text-text-sub-dark ml-1 font-normal">(1)</span>
+</span>
+</div>
+</div>
+<button class="px-3 py-1.5 rounded-lg bg-sky-50 dark:bg-sky-900/20 text-primary text-xs font-bold hover:bg-sky-100 dark:hover:bg-sky-900/40 transition-colors whitespace-nowrap">
+                            Cấu hình
+                        </button>
+</div>
+<div data-view-target="outlook" role="button" tabindex="0" class="group flex items-center justify-between p-4 bg-white dark:bg-surface-dark border border-border-light dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 rounded-xl cursor-pointer transition-all shadow-sm hover:shadow-md">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center text-blue-600 dark:text-blue-400">
+<span class="material-icons text-2xl">local_post_office</span>
+</div>
+<div>
+<h3 class="font-bold text-sm text-text-main-light dark:text-text-main-dark">Outlook 365</h3>
+<span class="text-xs text-text-sub-light dark:text-text-sub-dark font-medium flex items-center gap-1.5 mt-0.5">
+<span class="w-1.5 h-1.5 rounded-full bg-slate-300 dark:bg-slate-600"></span> Chưa kết nối
+                                    </span>
+</div>
+</div>
+<button class="px-3 py-1.5 rounded-lg border border-border-light dark:border-slate-600 text-text-sub-light dark:text-text-sub-dark text-xs font-bold hover:bg-slate-50 dark:hover:bg-slate-700 hover:text-text-main-light transition-colors whitespace-nowrap">
+                            Kết nối ngay
+                        </button>
+</div>
+<div data-view-target="smtp" role="button" tabindex="0" class="group flex items-center justify-between p-4 bg-white dark:bg-surface-dark border border-border-light dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 rounded-xl cursor-pointer transition-all shadow-sm hover:shadow-md">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-purple-50 dark:bg-purple-900/20 flex items-center justify-center text-purple-600 dark:text-purple-400">
+<span class="material-icons text-2xl">dns</span>
+</div>
+<div>
+<h3 class="font-bold text-sm text-text-main-light dark:text-text-main-dark">Custom SMTP</h3>
+<span class="text-xs text-text-sub-light dark:text-text-sub-dark font-medium flex items-center gap-1.5 mt-0.5">
+<span class="w-1.5 h-1.5 rounded-full bg-slate-300 dark:bg-slate-600"></span> Chưa kết nối
+                                    </span>
+</div>
+</div>
+<button class="px-3 py-1.5 rounded-lg border border-border-light dark:border-slate-600 text-text-sub-light dark:text-text-sub-dark text-xs font-bold hover:bg-slate-50 dark:hover:bg-slate-700 hover:text-text-main-light transition-colors whitespace-nowrap">
+                            Kết nối ngay
+                        </button>
+</div>
+</div>
+</div>
+<div class="flex-1 flex flex-col bg-slate-50/50 dark:bg-slate-900/50 overflow-y-auto custom-scrollbar p-6 lg:p-10 items-center">
+<div class="w-full max-w-4xl bg-surface-light dark:bg-surface-dark rounded-2xl shadow-sm border border-border-light dark:border-border-dark overflow-hidden flex flex-col">
+<div class="px-8 py-6 flex justify-between items-center bg-white dark:bg-surface-dark sticky top-0 z-10">
+<div>
+<h1 class="text-xl font-bold text-text-main-light dark:text-text-main-dark flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-red-50 dark:bg-red-900/30 flex items-center justify-center text-red-600 dark:text-red-400 shadow-sm">
+<span class="material-icons text-xl">mail</span>
+</div>
+                                Cấu hình Kênh Gmail
+                            </h1>
+<p class="text-sm text-text-sub-light dark:text-text-sub-dark mt-1 ml-14">Thiết lập đồng bộ và quyền truy cập cho tài khoản Gmail</p>
+</div>
+<div class="px-3 py-1 bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 rounded-full text-xs font-bold border border-green-200 dark:border-green-800 flex items-center gap-1">
+<span class="material-icons text-sm">check_circle</span> Active
+                        </div>
+</div>
+<div class="h-px w-full bg-border-light dark:bg-border-dark mx-8 max-w-[calc(100%-4rem)]"></div>
+<div class="p-8 space-y-8 flex-1">
+<div class="bg-blue-50 dark:bg-blue-900/10 border border-blue-100 dark:border-blue-900/30 rounded-xl p-5 relative">
+<div class="flex items-center gap-5">
+<div class="relative">
+<img alt="User Avatar" class="w-14 h-14 rounded-full object-cover border-4 border-white dark:border-surface-dark shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzul7yPV6V9pSxsCXWH65xnycjRYO_3piuXvieSZpnm0KuuNQcRm1B5WnnsE2KeJxOk4rby6RKGEATn-xdLru73fGHuSvyADKWSimFDY0hiLS8cnoowwH9U03hLS5pc-EmWe64H7ofm5uemKqIFbl0avrK7CGfN-IivADty3rjUxlvY0gP_Y8prCbXYRyILoYhBsv7X-2e4aMYR4oWhMIgS3dPX1JVuQ0zK172NQhvDr5rwzFTlGVNwfbF2TveNIx48-iGjFXLusU"/>
+<div class="absolute -bottom-1 -right-1 bg-white dark:bg-surface-dark rounded-full p-1 border border-blue-100 dark:border-blue-900">
+<span class="material-icons text-blue-500 text-sm">verified</span>
+</div>
+</div>
+<div class="flex-1">
+<h3 class="font-bold text-base text-text-main-light dark:text-text-main-dark">an.nguyen@abc.com</h3>
+<p class="text-xs text-blue-600 dark:text-blue-400 font-medium mt-0.5">Được kết nối thông qua Google OAuth 2.0</p>
+<p class="text-[10px] text-text-sub-light mt-1">Lần đồng bộ cuối: Vừa xong</p>
+</div>
+<button class="text-xs font-bold text-red-500 hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-900/20 px-4 py-2 rounded-lg transition-colors border border-transparent hover:border-red-100 dark:hover:border-red-900/30">
+                                    Ngắt kết nối
+                                </button>
+</div>
+<div class="absolute bottom-0 right-0 transform translate-y-1/2 translate-x-[-20px] z-10">
+<button class="flex items-center gap-2 px-4 py-2 bg-white dark:bg-surface-dark border border-border-light dark:border-border-dark rounded-full shadow-sm text-xs font-bold text-text-main-light dark:text-text-main-dark hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+<span class="material-icons text-sm text-text-sub-light">add</span>
+                                    Thêm tài khoản
+                                </button>
+</div>
+</div>
+<div class="space-y-6 pt-4">
+<h3 class="text-sm font-bold text-text-main-light dark:text-text-main-dark uppercase tracking-wider border-b border-border-light dark:border-border-dark pb-2 flex items-center gap-2">
+<span class="material-icons-outlined text-base">sync</span>
+                                Cài đặt đồng bộ
+                            </h3>
+<div class="flex items-center justify-between">
+<div class="pr-8">
+<label class="block text-sm font-bold text-text-main-light dark:text-text-main-dark mb-0.5">Đồng bộ hai chiều (Two-way Sync)</label>
+<p class="text-xs text-text-sub-light leading-relaxed">Email gửi đi từ hệ thống sẽ xuất hiện trong thư mục "Đã gửi" của Gmail và ngược lại. Email đến sẽ tự động đổ về hộp thư CRM.</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer flex-shrink-0">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-slate-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+</label>
+</div>
+<div class="flex items-center justify-between">
+<div class="pr-8">
+<label class="block text-sm font-bold text-text-main-light dark:text-text-main-dark mb-0.5">Tự động tạo Lead</label>
+<p class="text-xs text-text-sub-light leading-relaxed">Tự động tạo hồ sơ khách hàng tiềm năng mới khi nhận được email từ địa chỉ chưa có trong hệ thống.</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer flex-shrink-0">
+<input class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-slate-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+<div class="space-y-4">
+<h3 class="text-sm font-bold text-text-main-light dark:text-text-main-dark uppercase tracking-wider border-b border-border-light dark:border-border-dark pb-2 pt-2 flex items-center gap-2">
+<span class="material-icons-outlined text-base">lock</span>
+                                Quyền truy cập &amp; Chia sẻ
+                             </h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div>
+<label class="block text-xs font-bold text-text-sub-light mb-2">Trạng thái chia sẻ</label>
+<div class="relative">
+<select class="w-full bg-slate-50 dark:bg-slate-800 border border-border-light dark:border-border-dark text-text-main-light dark:text-text-main-dark text-sm rounded-lg focus:ring-primary focus:border-primary block p-2.5 appearance-none">
+<option>Riêng tư (Chỉ mình tôi)</option>
+<option selected="">Công khai với Team</option>
+<option>Tùy chỉnh...</option>
+</select>
+<div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+<span class="material-icons text-slate-400 text-sm">expand_more</span>
+</div>
+</div>
+<p class="text-[10px] text-text-sub-light mt-1.5">Kiểm soát ai có thể xem email từ tài khoản này.</p>
+</div>
+<div>
+<label class="block text-xs font-bold text-text-sub-light mb-2">Team được phép xem</label>
+<div class="flex flex-wrap items-center gap-2 p-1.5 border border-border-light dark:border-border-dark rounded-lg bg-slate-50 dark:bg-slate-800 min-h-[42px]">
+<span class="px-2 py-1 bg-white dark:bg-slate-700 rounded text-xs font-medium border border-slate-200 dark:border-slate-600 shadow-sm flex items-center gap-1.5 text-text-main-light dark:text-text-main-dark">
+                                            Marketing Team <button class="hover:text-red-500 flex items-center"><span class="material-icons text-[12px]">close</span></button>
+</span>
+<button class="w-6 h-6 rounded-full hover:bg-slate-200 dark:hover:bg-slate-600 flex items-center justify-center text-slate-400 transition-colors">
+<span class="material-icons text-sm">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="space-y-4">
+<h3 class="text-sm font-bold text-text-main-light dark:text-text-main-dark uppercase tracking-wider border-b border-border-light dark:border-border-dark pb-2 pt-2 flex items-center gap-2">
+<span class="material-icons-outlined text-base">edit_note</span>
+                                Chữ ký Email
+                            </h3>
+<div class="border border-border-light dark:border-border-dark rounded-xl overflow-hidden focus-within:ring-2 focus-within:ring-primary focus-within:ring-opacity-50 transition-shadow shadow-sm">
+<div class="bg-slate-50 dark:bg-slate-800 border-b border-border-light dark:border-border-dark px-3 py-2 flex items-center gap-1">
+<button class="w-8 h-8 rounded hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-500 flex items-center justify-center transition-colors"><span class="material-icons text-base">format_bold</span></button>
+<button class="w-8 h-8 rounded hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-500 flex items-center justify-center transition-colors"><span class="material-icons text-base">format_italic</span></button>
+<button class="w-8 h-8 rounded hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-500 flex items-center justify-center transition-colors"><span class="material-icons text-base">link</span></button>
+<div class="w-px h-4 bg-slate-300 dark:bg-slate-600 mx-1"></div>
+<button class="w-8 h-8 rounded hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-500 flex items-center justify-center transition-colors"><span class="material-icons text-base">image</span></button>
+</div>
+<textarea class="w-full p-4 text-sm bg-white dark:bg-surface-dark border-none focus:ring-0 min-h-[120px] resize-none text-text-main-light dark:text-text-main-dark" placeholder="Nhập chữ ký email của bạn...">Trân trọng,
+Nguyễn Văn An | Marketing Manager
+Công ty ABC</textarea>
+</div>
+</div>
+</div>
+<div class="px-8 py-5 bg-slate-50 dark:bg-slate-800/50 border-t border-border-light dark:border-border-dark flex items-center justify-end gap-3 sticky bottom-0 z-10 rounded-b-2xl">
+<button class="px-5 py-2.5 rounded-lg border border-border-light dark:border-slate-600 text-text-sub-light dark:text-text-sub-dark text-sm font-bold hover:bg-white dark:hover:bg-slate-700 hover:text-text-main-light transition-colors shadow-sm">
+                            Hủy thay đổi
+                        </button>
+<button class="px-5 py-2.5 rounded-lg bg-primary hover:bg-sky-600 text-white text-sm font-bold shadow-lg shadow-sky-500/20 transition-all flex items-center gap-2">
+<span class="material-icons text-sm">save</span> Lưu cấu hình
+                        </button>
+</div>
+</div>
+</div>
+
+  </section>
+
+  <!-- =========================================================
+    VIEW: SC420_email_outlook - Kết nối nguồn Outlook 365
+  ========================================================== -->
+  <section id="view-outlook" data-view="outlook" class="absolute inset-0 hidden flex overflow-hidden">
+
+<div class="w-[30%] min-w-[320px] max-w-sm flex flex-col border-r border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark z-10">
+<div class="flex flex-col border-b border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark">
+<div class="px-4 pt-4 pb-2">
+<button type="button" data-view-target="inbox" class="flex items-center gap-2 text-text-sub-light hover:text-primary transition-colors group">
+<span class="material-icons-outlined text-xl group-hover:text-primary transition-colors">arrow_back</span>
+<span class="font-bold text-lg text-text-main-light dark:text-text-main-dark group-hover:text-primary transition-colors">Hộp thư đến</span>
+</button>
+</div>
+<div class="px-4 pb-4 flex items-center gap-2">
+<button class="px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-primary text-xs font-bold border border-transparent transition-colors">
+                            Tất cả
+                        </button>
+<button class="px-3 py-1.5 rounded-lg bg-white dark:bg-transparent text-text-sub-light dark:text-text-sub-dark hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-800 text-xs font-medium border border-border-light dark:border-slate-700 transition-colors">
+                            Chưa kết nối
+                        </button>
+<button class="px-3 py-1.5 rounded-lg bg-white dark:bg-transparent text-text-sub-light dark:text-text-sub-dark hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-800 text-xs font-medium border border-border-light dark:border-slate-700 transition-colors">
+                            Lỗi kết nối
+                        </button>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto custom-scrollbar p-4 space-y-3 bg-slate-50/50 dark:bg-slate-900/50">
+<div data-view-target="gmail" role="button" tabindex="0" class="group flex items-center justify-between p-4 bg-white dark:bg-surface-dark border border-border-light dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 rounded-xl cursor-pointer transition-all shadow-sm hover:shadow-md">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-red-50 dark:bg-red-900/20 flex items-center justify-center text-red-600 dark:text-red-400">
+<span class="material-icons text-2xl">mail</span>
+</div>
+<div>
+<h3 class="font-bold text-sm text-text-main-light dark:text-text-main-dark">Gmail</h3>
+<span class="text-xs text-text-sub-light dark:text-text-sub-dark font-medium flex items-center gap-1.5 mt-0.5">
+<span class="w-1.5 h-1.5 rounded-full bg-slate-300 dark:bg-slate-600"></span> Chưa kết nối
+                                </span>
+</div>
+</div>
+<button class="px-3 py-1.5 rounded-lg border border-border-light dark:border-slate-600 text-text-sub-light dark:text-text-sub-dark text-xs font-bold hover:bg-slate-50 dark:hover:bg-slate-700 hover:text-text-main-light transition-colors whitespace-nowrap">
+                            Kết nối ngay
+                        </button>
+</div>
+<div data-view-target="outlook" role="button" tabindex="0" class="group flex items-center justify-between p-4 bg-white dark:bg-slate-800 border-2 border-primary rounded-xl cursor-pointer relative shadow-md shadow-slate-200/50 dark:shadow-none transition-all">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center text-blue-600 dark:text-blue-400">
+<span class="material-icons text-2xl">local_post_office</span>
+</div>
+<div>
+<h3 class="font-bold text-sm text-text-main-light dark:text-text-main-dark">Outlook 365</h3>
+<span class="text-xs text-green-600 dark:text-green-400 font-medium flex items-center gap-1.5 mt-0.5">
+<span class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span> Đã kết nối
+                                    <span class="text-text-sub-light dark:text-text-sub-dark ml-1 font-normal">(1)</span>
+</span>
+</div>
+</div>
+<button class="px-3 py-1.5 rounded-lg bg-sky-50 dark:bg-sky-900/20 text-primary text-xs font-bold hover:bg-sky-100 dark:hover:bg-sky-900/40 transition-colors whitespace-nowrap">
+                            Cấu hình
+                        </button>
+</div>
+<div data-view-target="smtp" role="button" tabindex="0" class="group flex items-center justify-between p-4 bg-white dark:bg-surface-dark border border-border-light dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 rounded-xl cursor-pointer transition-all shadow-sm hover:shadow-md">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-purple-50 dark:bg-purple-900/20 flex items-center justify-center text-purple-600 dark:text-purple-400">
+<span class="material-icons text-2xl">dns</span>
+</div>
+<div>
+<h3 class="font-bold text-sm text-text-main-light dark:text-text-main-dark">Custom SMTP</h3>
+<span class="text-xs text-text-sub-light dark:text-text-sub-dark font-medium flex items-center gap-1.5 mt-0.5">
+<span class="w-1.5 h-1.5 rounded-full bg-slate-300 dark:bg-slate-600"></span> Chưa kết nối
+                                </span>
+</div>
+</div>
+<button class="px-3 py-1.5 rounded-lg border border-border-light dark:border-slate-600 text-text-sub-light dark:text-text-sub-dark text-xs font-bold hover:bg-slate-50 dark:hover:bg-slate-700 hover:text-text-main-light transition-colors whitespace-nowrap">
+                            Kết nối ngay
+                        </button>
+</div>
+</div>
+</div>
+<div class="flex-1 flex flex-col bg-slate-50/50 dark:bg-slate-900/50 overflow-y-auto custom-scrollbar p-6 lg:p-10 items-center">
+<div class="w-full max-w-4xl bg-surface-light dark:bg-surface-dark rounded-2xl shadow-sm border border-border-light dark:border-border-dark overflow-hidden flex flex-col">
+<div class="px-8 py-6 flex justify-between items-center bg-white dark:bg-surface-dark sticky top-0 z-10">
+<div>
+<h1 class="text-xl font-bold text-text-main-light dark:text-text-main-dark flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-blue-50 dark:bg-blue-900/30 flex items-center justify-center text-blue-600 dark:text-blue-400 shadow-sm">
+<span class="material-icons text-xl">local_post_office</span>
+</div>
+                                Cấu hình Kênh Outlook 365
+                            </h1>
+<p class="text-sm text-text-sub-light dark:text-text-sub-dark mt-1 ml-14">Thiết lập đồng bộ và quyền truy cập cho tài khoản Outlook</p>
+</div>
+<div class="px-3 py-1 bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400 rounded-full text-xs font-bold border border-green-200 dark:border-green-800 flex items-center gap-1">
+<span class="material-icons text-sm">check_circle</span> Active
+                        </div>
+</div>
+<div class="h-px w-full bg-border-light dark:bg-border-dark mx-8 max-w-[calc(100%-4rem)]"></div>
+<div class="p-8 space-y-8 flex-1">
+<div class="bg-blue-50 dark:bg-blue-900/10 border border-blue-100 dark:border-blue-900/30 rounded-xl p-5 relative">
+<div class="flex items-center gap-5">
+<div class="relative">
+<img alt="User Avatar" class="w-14 h-14 rounded-full object-cover border-4 border-white dark:border-surface-dark shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzul7yPV6V9pSxsCXWH65xnycjRYO_3piuXvieSZpnm0KuuNQcRm1B5WnnsE2KeJxOk4rby6RKGEATn-xdLru73fGHuSvyADKWSimFDY0hiLS8cnoowwH9U03hLS5pc-EmWe64H7ofm5uemKqIFbl0avrK7CGfN-IivADty3rjUxlvY0gP_Y8prCbXYRyILoYhBsv7X-2e4aMYR4oWhMIgS3dPX1JVuQ0zK172NQhvDr5rwzFTlGVNwfbF2TveNIx48-iGjFXLusU"/>
+<div class="absolute -bottom-1 -right-1 bg-white dark:bg-surface-dark rounded-full p-1 border border-blue-100 dark:border-blue-900">
+<span class="material-icons text-blue-500 text-sm">verified</span>
+</div>
+</div>
+<div class="flex-1">
+<h3 class="font-bold text-base text-text-main-light dark:text-text-main-dark">an.nguyen@abc.com</h3>
+<p class="text-xs text-blue-600 dark:text-blue-400 font-medium mt-0.5">Đã kết nối với Microsoft như an.nguyen@abc.com</p>
+<p class="text-[10px] text-text-sub-light mt-1">Lần đồng bộ cuối: Vừa xong</p>
+</div>
+<button class="text-xs font-bold text-blue-600 hover:text-blue-700 hover:bg-blue-100/50 px-4 py-2 rounded-lg transition-colors border border-blue-200 bg-white shadow-sm">
+                                    Đổi tài khoản Microsoft
+                                </button>
+</div>
+<div class="absolute bottom-0 right-0 transform translate-y-1/2 translate-x-[-20px] z-10">
+<button class="flex items-center gap-2 px-4 py-2 bg-white dark:bg-surface-dark border border-border-light dark:border-border-dark rounded-full shadow-sm text-xs font-bold text-text-main-light dark:text-text-main-dark hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">
+<span class="material-icons text-sm text-text-sub-light">add</span>
+                                    Thêm tài khoản
+                                </button>
+</div>
+</div>
+<div class="space-y-6 pt-4">
+<h3 class="text-sm font-bold text-text-main-light dark:text-text-main-dark uppercase tracking-wider border-b border-border-light dark:border-border-dark pb-2 flex items-center gap-2">
+<span class="material-icons-outlined text-base">sync</span>
+                                Cài đặt đồng bộ
+                            </h3>
+<div class="flex items-center justify-between">
+<div class="pr-8">
+<label class="block text-sm font-bold text-text-main-light dark:text-text-main-dark mb-0.5">Đồng bộ hai chiều (Two-way Sync)</label>
+<p class="text-xs text-text-sub-light leading-relaxed">Email gửi đi từ hệ thống sẽ xuất hiện trong thư mục "Đã gửi" của Outlook và ngược lại. Email đến sẽ tự động đổ về hộp thư CRM.</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer flex-shrink-0">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-slate-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+</label>
+</div>
+<div class="flex items-center justify-between">
+<div class="pr-8">
+<label class="block text-sm font-bold text-text-main-light dark:text-text-main-dark mb-0.5">Tự động tạo Lead</label>
+<p class="text-xs text-text-sub-light leading-relaxed">Tự động tạo hồ sơ khách hàng tiềm năng mới khi nhận được email từ địa chỉ chưa có trong hệ thống.</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer flex-shrink-0">
+<input class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-slate-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+<div class="space-y-4">
+<h3 class="text-sm font-bold text-text-main-light dark:text-text-main-dark uppercase tracking-wider border-b border-border-light dark:border-border-dark pb-2 pt-2 flex items-center gap-2">
+<span class="material-icons-outlined text-base">lock</span>
+                                Quyền truy cập &amp; Chia sẻ
+                             </h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div>
+<label class="block text-xs font-bold text-text-sub-light mb-2">Trạng thái chia sẻ</label>
+<div class="relative">
+<select class="w-full bg-slate-50 dark:bg-slate-800 border border-border-light dark:border-border-dark text-text-main-light dark:text-text-main-dark text-sm rounded-lg focus:ring-primary focus:border-primary block p-2.5 appearance-none">
+<option>Riêng tư (Chỉ mình tôi)</option>
+<option selected="">Công khai với Team</option>
+<option>Tùy chỉnh...</option>
+</select>
+<div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+<span class="material-icons text-slate-400 text-sm">expand_more</span>
+</div>
+</div>
+<p class="text-[10px] text-text-sub-light mt-1.5">Kiểm soát ai có thể xem email từ tài khoản này.</p>
+</div>
+<div>
+<label class="block text-xs font-bold text-text-sub-light mb-2">Team được phép xem</label>
+<div class="flex flex-wrap items-center gap-2 p-1.5 border border-border-light dark:border-border-dark rounded-lg bg-slate-50 dark:bg-slate-800 min-h-[42px]">
+<span class="px-2 py-1 bg-white dark:bg-slate-700 rounded text-xs font-medium border border-slate-200 dark:border-slate-600 shadow-sm flex items-center gap-1.5 text-text-main-light dark:text-text-main-dark">
+                                            Marketing Team <button class="hover:text-red-500 flex items-center"><span class="material-icons text-[12px]">close</span></button>
+</span>
+<button class="w-6 h-6 rounded-full hover:bg-slate-200 dark:hover:bg-slate-600 flex items-center justify-center text-slate-400 transition-colors">
+<span class="material-icons text-sm">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="space-y-4">
+<h3 class="text-sm font-bold text-text-main-light dark:text-text-main-dark uppercase tracking-wider border-b border-border-light dark:border-border-dark pb-2 pt-2 flex items-center gap-2">
+<span class="material-icons-outlined text-base">edit_note</span>
+                                Chữ ký Email
+                            </h3>
+<div class="border border-border-light dark:border-border-dark rounded-xl overflow-hidden focus-within:ring-2 focus-within:ring-primary focus-within:ring-opacity-50 transition-shadow shadow-sm">
+<div class="bg-slate-50 dark:bg-slate-800 border-b border-border-light dark:border-border-dark px-3 py-2 flex items-center gap-1">
+<button class="w-8 h-8 rounded hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-500 flex items-center justify-center transition-colors"><span class="material-icons text-base">format_bold</span></button>
+<button class="w-8 h-8 rounded hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-500 flex items-center justify-center transition-colors"><span class="material-icons text-base">format_italic</span></button>
+<button class="w-8 h-8 rounded hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-500 flex items-center justify-center transition-colors"><span class="material-icons text-base">link</span></button>
+<div class="w-px h-4 bg-slate-300 dark:bg-slate-600 mx-1"></div>
+<button class="w-8 h-8 rounded hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-500 flex items-center justify-center transition-colors"><span class="material-icons text-base">image</span></button>
+</div>
+<textarea class="w-full p-4 text-sm bg-white dark:bg-surface-dark border-none focus:ring-0 min-h-[120px] resize-none text-text-main-light dark:text-text-main-dark" placeholder="Nhập chữ ký email của bạn...">Trân trọng,
+Nguyễn Văn An | Marketing Manager
+Công ty ABC</textarea>
+</div>
+</div>
+</div>
+<div class="px-8 py-5 bg-slate-50 dark:bg-slate-800/50 border-t border-border-light dark:border-border-dark flex items-center justify-end gap-3 sticky bottom-0 z-10 rounded-b-2xl">
+<button class="px-5 py-2.5 rounded-lg border border-border-light dark:border-slate-600 text-text-sub-light dark:text-text-sub-dark text-sm font-bold hover:bg-white dark:hover:bg-slate-700 hover:text-text-main-light transition-colors shadow-sm">
+                            Hủy thay đổi
+                        </button>
+<button class="px-5 py-2.5 rounded-lg bg-primary hover:bg-sky-600 text-white text-sm font-bold shadow-lg shadow-sky-500/20 transition-all flex items-center gap-2">
+<span class="material-icons text-sm">save</span> Lưu cấu hình
+                        </button>
+</div>
+</div>
+</div>
+
+  </section>
+
+  <!-- =========================================================
+    VIEW: SC430_email_SMTP - Kết nối nguồn Custom SMTP
+  ========================================================== -->
+  <section id="view-smtp" data-view="smtp" class="absolute inset-0 hidden flex overflow-hidden">
+
+<div class="w-[30%] min-w-[320px] max-w-sm flex flex-col border-r border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark z-10">
+<div class="flex flex-col border-b border-border-light dark:border-border-dark bg-surface-light dark:bg-surface-dark">
+<div class="px-4 pt-4 pb-2">
+<button type="button" data-view-target="inbox" class="flex items-center gap-2 text-text-sub-light hover:text-primary transition-colors group">
+<span class="material-icons-outlined text-xl group-hover:text-primary transition-colors">arrow_back</span>
+<span class="font-bold text-lg text-text-main-light dark:text-text-main-dark group-hover:text-primary transition-colors">Hộp thư đến</span>
+</button>
+</div>
+<div class="px-4 pb-4 flex items-center gap-2">
+<button class="px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-primary text-xs font-bold border border-transparent transition-colors">
+                        Tất cả
+                    </button>
+<button class="px-3 py-1.5 rounded-lg bg-white dark:bg-transparent text-text-sub-light dark:text-text-sub-dark hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-800 text-xs font-medium border border-border-light dark:border-slate-700 transition-colors">
+                        Chưa kết nối
+                    </button>
+<button class="px-3 py-1.5 rounded-lg bg-white dark:bg-transparent text-text-sub-light dark:text-text-sub-dark hover:text-primary hover:bg-slate-50 dark:hover:bg-slate-800 text-xs font-medium border border-border-light dark:border-slate-700 transition-colors">
+                        Lỗi kết nối
+                    </button>
+</div>
+</div>
+<div class="flex-1 overflow-y-auto custom-scrollbar p-4 space-y-3 bg-slate-50/50 dark:bg-slate-900/50">
+<div data-view-target="gmail" role="button" tabindex="0" class="group flex items-center justify-between p-4 bg-white dark:bg-surface-dark border border-border-light dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 rounded-xl cursor-pointer transition-all shadow-sm hover:shadow-md">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-red-50 dark:bg-red-900/20 flex items-center justify-center text-red-600 dark:text-red-400">
+<span class="material-icons text-2xl">mail</span>
+</div>
+<div>
+<h3 class="font-bold text-sm text-text-main-light dark:text-text-main-dark">Gmail</h3>
+<span class="text-xs text-green-600 dark:text-green-400 font-medium flex items-center gap-1.5 mt-0.5">
+<span class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span> Đã kết nối
+                                        <span class="text-text-sub-light dark:text-text-sub-dark ml-1 font-normal">(1)</span>
+</span>
+</div>
+</div>
+<button class="px-3 py-1.5 rounded-lg border border-border-light dark:border-slate-600 text-text-sub-light dark:text-text-sub-dark text-xs font-bold hover:bg-slate-50 dark:hover:bg-slate-700 hover:text-text-main-light transition-colors whitespace-nowrap">
+                            Cấu hình
+                        </button>
+</div>
+<div data-view-target="outlook" role="button" tabindex="0" class="group flex items-center justify-between p-4 bg-white dark:bg-surface-dark border border-border-light dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 rounded-xl cursor-pointer transition-all shadow-sm hover:shadow-md">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center text-blue-600 dark:text-blue-400">
+<span class="material-icons text-2xl">local_post_office</span>
+</div>
+<div>
+<h3 class="font-bold text-sm text-text-main-light dark:text-text-main-dark">Outlook 365</h3>
+<span class="text-xs text-text-sub-light dark:text-text-sub-dark font-medium flex items-center gap-1.5 mt-0.5">
+<span class="w-1.5 h-1.5 rounded-full bg-slate-300 dark:bg-slate-600"></span> Chưa kết nối
+                                    </span>
+</div>
+</div>
+<button class="px-3 py-1.5 rounded-lg border border-border-light dark:border-slate-600 text-text-sub-light dark:text-text-sub-dark text-xs font-bold hover:bg-slate-50 dark:hover:bg-slate-700 hover:text-text-main-light transition-colors whitespace-nowrap">
+                            Kết nối ngay
+                        </button>
+</div>
+<div data-view-target="smtp" role="button" tabindex="0" class="group flex items-center justify-between p-4 bg-white dark:bg-slate-800 border-2 border-primary rounded-xl cursor-pointer relative shadow-md shadow-slate-200/50 dark:shadow-none transition-all">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-lg bg-purple-50 dark:bg-purple-900/20 flex items-center justify-center text-purple-600 dark:text-purple-400">
+<span class="material-icons text-2xl">dns</span>
+</div>
+<div>
+<h3 class="font-bold text-sm text-text-main-light dark:text-text-main-dark">Custom SMTP</h3>
+<span class="text-xs text-text-sub-light dark:text-text-sub-dark font-medium flex items-center gap-1.5 mt-0.5">
+<span class="w-1.5 h-1.5 rounded-full bg-slate-300 dark:bg-slate-600"></span> Đang cấu hình...
+                                    </span>
+</div>
+</div>
+<button class="px-3 py-1.5 rounded-lg bg-sky-50 dark:bg-sky-900/20 text-primary text-xs font-bold hover:bg-sky-100 dark:hover:bg-sky-900/40 transition-colors whitespace-nowrap">
+                            Cấu hình
+                        </button>
+</div>
+</div>
+</div>
+<div class="flex-1 flex flex-col bg-slate-50/50 dark:bg-slate-900/50 overflow-y-auto custom-scrollbar p-6 lg:p-10 items-center">
+<div class="w-full max-w-4xl bg-surface-light dark:bg-surface-dark rounded-2xl shadow-sm border border-border-light dark:border-border-dark overflow-hidden flex flex-col">
+<div class="px-8 py-6 flex justify-between items-center bg-white dark:bg-surface-dark sticky top-0 z-10">
+<div>
+<h1 class="text-xl font-bold text-text-main-light dark:text-text-main-dark flex items-center gap-3">
+<div class="w-10 h-10 rounded-xl bg-purple-50 dark:bg-purple-900/30 flex items-center justify-center text-purple-600 dark:text-purple-400 shadow-sm">
+<span class="material-icons text-xl">dns</span>
+</div>
+                                Cấu hình Kênh Custom SMTP
+                            </h1>
+<p class="text-sm text-text-sub-light dark:text-text-sub-dark mt-1 ml-14">Kết nối máy chủ email riêng của bạn qua SMTP/IMAP</p>
+</div>
+<div class="px-3 py-1 bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-400 rounded-full text-xs font-bold border border-slate-200 dark:border-slate-700 flex items-center gap-1">
+<span class="material-icons text-sm">pending</span> Draft
+                        </div>
+</div>
+<div class="h-px w-full bg-border-light dark:bg-border-dark mx-8 max-w-[calc(100%-4rem)]"></div>
+<div class="p-8 space-y-8 flex-1">
+<div class="bg-purple-50 dark:bg-purple-900/10 border border-purple-100 dark:border-purple-900/30 rounded-xl p-6">
+<h3 class="text-sm font-bold text-text-main-light dark:text-text-main-dark uppercase tracking-wider mb-4 flex items-center gap-2">
+<span class="material-icons-outlined text-base">settings_ethernet</span>
+                                Thông tin máy chủ
+                            </h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="md:col-span-2">
+<label class="block text-xs font-bold text-text-sub-light mb-2">Địa chỉ máy chủ SMTP</label>
+<div class="relative">
+<input class="w-full bg-white dark:bg-slate-800 border border-border-light dark:border-border-dark text-text-main-light dark:text-text-main-dark text-sm rounded-lg focus:ring-primary focus:border-primary block p-2.5 pl-9" placeholder="smtp.example.com" type="text"/>
+<div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+<span class="material-icons text-slate-400 text-sm">dns</span>
+</div>
+</div>
+</div>
+<div>
+<label class="block text-xs font-bold text-text-sub-light mb-2">Cổng SMTP</label>
+<div class="relative">
+<input class="w-full bg-white dark:bg-slate-800 border border-border-light dark:border-border-dark text-text-main-light dark:text-text-main-dark text-sm rounded-lg focus:ring-primary focus:border-primary block p-2.5 pl-9" placeholder="587" type="text"/>
+<div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+<span class="material-icons text-slate-400 text-sm">settings_input_component</span>
+</div>
+</div>
+</div>
+<div>
+<label class="block text-xs font-bold text-text-sub-light mb-2">Bảo mật (SSL/TLS)</label>
+<div class="relative">
+<select class="w-full bg-white dark:bg-slate-800 border border-border-light dark:border-border-dark text-text-main-light dark:text-text-main-dark text-sm rounded-lg focus:ring-primary focus:border-primary block p-2.5 pl-9 appearance-none">
+<option value="starttls">STARTTLS</option>
+<option value="ssl">SSL/TLS</option>
+<option value="none">Không bảo mật</option>
+</select>
+<div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+<span class="material-icons text-slate-400 text-sm">security</span>
+</div>
+<div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+<span class="material-icons text-slate-400 text-sm">expand_more</span>
+</div>
+</div>
+</div>
+<div>
+<label class="block text-xs font-bold text-text-sub-light mb-2">Tên người dùng SMTP</label>
+<div class="relative">
+<input class="w-full bg-white dark:bg-slate-800 border border-border-light dark:border-border-dark text-text-main-light dark:text-text-main-dark text-sm rounded-lg focus:ring-primary focus:border-primary block p-2.5 pl-9" placeholder="email@example.com" type="text"/>
+<div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+<span class="material-icons text-slate-400 text-sm">person</span>
+</div>
+</div>
+</div>
+<div>
+<label class="block text-xs font-bold text-text-sub-light mb-2">Mật khẩu SMTP</label>
+<div class="relative">
+<input class="w-full bg-white dark:bg-slate-800 border border-border-light dark:border-border-dark text-text-main-light dark:text-text-main-dark text-sm rounded-lg focus:ring-primary focus:border-primary block p-2.5 pl-9" placeholder="••••••••" type="password"/>
+<div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+<span class="material-icons text-slate-400 text-sm">lock</span>
+</div>
+</div>
+</div>
+</div>
+<div class="mt-4 pt-4 border-t border-purple-200 dark:border-purple-800/30 flex justify-end">
+<button class="text-xs font-bold text-purple-600 dark:text-purple-400 hover:text-purple-700 dark:hover:text-purple-300 flex items-center gap-1.5 px-3 py-1.5 rounded-lg hover:bg-purple-100 dark:hover:bg-purple-900/40 transition-colors">
+<span class="material-icons text-sm">send</span>
+                                    Kiểm tra kết nối
+                                </button>
+</div>
+</div>
+<div class="space-y-6 pt-4">
+<h3 class="text-sm font-bold text-text-main-light dark:text-text-main-dark uppercase tracking-wider border-b border-border-light dark:border-border-dark pb-2 flex items-center gap-2">
+<span class="material-icons-outlined text-base">sync</span>
+                                Cài đặt đồng bộ
+                            </h3>
+<div class="flex items-center justify-between">
+<div class="pr-8">
+<label class="block text-sm font-bold text-text-main-light dark:text-text-main-dark mb-0.5">Đồng bộ hai chiều (Two-way Sync)</label>
+<p class="text-xs text-text-sub-light leading-relaxed">Email gửi đi từ hệ thống sẽ xuất hiện trong thư mục "Đã gửi" của server và ngược lại. Email đến sẽ tự động đổ về hộp thư CRM.</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer flex-shrink-0">
+<input checked="" class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-slate-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+</label>
+</div>
+<div class="flex items-center justify-between">
+<div class="pr-8">
+<label class="block text-sm font-bold text-text-main-light dark:text-text-main-dark mb-0.5">Tự động tạo Lead</label>
+<p class="text-xs text-text-sub-light leading-relaxed">Tự động tạo hồ sơ khách hàng tiềm năng mới khi nhận được email từ địa chỉ chưa có trong hệ thống.</p>
+</div>
+<label class="relative inline-flex items-center cursor-pointer flex-shrink-0">
+<input class="sr-only peer" type="checkbox"/>
+<div class="w-11 h-6 bg-slate-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-primary"></div>
+</label>
+</div>
+</div>
+<div class="space-y-4">
+<h3 class="text-sm font-bold text-text-main-light dark:text-text-main-dark uppercase tracking-wider border-b border-border-light dark:border-border-dark pb-2 pt-2 flex items-center gap-2">
+<span class="material-icons-outlined text-base">lock</span>
+                                Quyền truy cập &amp; Chia sẻ
+                             </h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div>
+<label class="block text-xs font-bold text-text-sub-light mb-2">Trạng thái chia sẻ</label>
+<div class="relative">
+<select class="w-full bg-slate-50 dark:bg-slate-800 border border-border-light dark:border-border-dark text-text-main-light dark:text-text-main-dark text-sm rounded-lg focus:ring-primary focus:border-primary block p-2.5 appearance-none">
+<option>Riêng tư (Chỉ mình tôi)</option>
+<option selected="">Công khai với Team</option>
+<option>Tùy chỉnh...</option>
+</select>
+<div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+<span class="material-icons text-slate-400 text-sm">expand_more</span>
+</div>
+</div>
+<p class="text-[10px] text-text-sub-light mt-1.5">Kiểm soát ai có thể xem email từ tài khoản này.</p>
+</div>
+<div>
+<label class="block text-xs font-bold text-text-sub-light mb-2">Team được phép xem</label>
+<div class="flex flex-wrap items-center gap-2 p-1.5 border border-border-light dark:border-border-dark rounded-lg bg-slate-50 dark:bg-slate-800 min-h-[42px]">
+<span class="px-2 py-1 bg-white dark:bg-slate-700 rounded text-xs font-medium border border-slate-200 dark:border-slate-600 shadow-sm flex items-center gap-1.5 text-text-main-light dark:text-text-main-dark">
+                                            Marketing Team <button class="hover:text-red-500 flex items-center"><span class="material-icons text-[12px]">close</span></button>
+</span>
+<button class="w-6 h-6 rounded-full hover:bg-slate-200 dark:hover:bg-slate-600 flex items-center justify-center text-slate-400 transition-colors">
+<span class="material-icons text-sm">add</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="space-y-4">
+<h3 class="text-sm font-bold text-text-main-light dark:text-text-main-dark uppercase tracking-wider border-b border-border-light dark:border-border-dark pb-2 pt-2 flex items-center gap-2">
+<span class="material-icons-outlined text-base">edit_note</span>
+                                Chữ ký Email
+                            </h3>
+<div class="border border-border-light dark:border-border-dark rounded-xl overflow-hidden focus-within:ring-2 focus-within:ring-primary focus-within:ring-opacity-50 transition-shadow shadow-sm">
+<div class="bg-slate-50 dark:bg-slate-800 border-b border-border-light dark:border-border-dark px-3 py-2 flex items-center gap-1">
+<button class="w-8 h-8 rounded hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-500 flex items-center justify-center transition-colors"><span class="material-icons text-base">format_bold</span></button>
+<button class="w-8 h-8 rounded hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-500 flex items-center justify-center transition-colors"><span class="material-icons text-base">format_italic</span></button>
+<button class="w-8 h-8 rounded hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-500 flex items-center justify-center transition-colors"><span class="material-icons text-base">link</span></button>
+<div class="w-px h-4 bg-slate-300 dark:bg-slate-600 mx-1"></div>
+<button class="w-8 h-8 rounded hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-500 flex items-center justify-center transition-colors"><span class="material-icons text-base">image</span></button>
+</div>
+<textarea class="w-full p-4 text-sm bg-white dark:bg-surface-dark border-none focus:ring-0 min-h-[120px] resize-none text-text-main-light dark:text-text-main-dark" placeholder="Nhập chữ ký email của bạn...">Trân trọng,
+Nguyễn Văn An | Marketing Manager
+Công ty ABC</textarea>
+</div>
+</div>
+</div>
+<div class="px-8 py-5 bg-slate-50 dark:bg-slate-800/50 border-t border-border-light dark:border-border-dark flex items-center justify-end gap-3 sticky bottom-0 z-10 rounded-b-2xl">
+<button class="px-5 py-2.5 rounded-lg border border-border-light dark:border-slate-600 text-text-sub-light dark:text-text-sub-dark text-sm font-bold hover:bg-white dark:hover:bg-slate-700 hover:text-text-main-light transition-colors shadow-sm">
+                            Hủy thay đổi
+                        </button>
+<button class="px-5 py-2.5 rounded-lg bg-primary hover:bg-sky-600 text-white text-sm font-bold shadow-lg shadow-sky-500/20 transition-all flex items-center gap-2">
+<span class="material-icons text-sm">save</span> Lưu cấu hình
+                        </button>
+</div>
+</div>
+</div>
+
+  </section>
 </main>
 </div>
 
@@ -542,57 +1222,74 @@
     const BASE_PATH = "/compa-crm-public/";
 ========================================================== -->
 <script>
-  // ====== CONFIG ======
+  // =======================
+  // CONFIG
+  // =======================
   const BASE_PATH = "/compa-crm-public/";
 
-  // ====== Helpers: apply sidebar links from data-href ======
+  // =======================
+  // Sidebar links (data-href -> href)
+  // =======================
   (function applySidebarLinks() {
     document.querySelectorAll('[data-href]').forEach(a => {
       const p = a.getAttribute('data-href') || '';
       // allow absolute URLs if user puts full link later
-      if (/^https?:\/\//i.test(p)) {
-        a.href = p;
-      } else {
-        a.href = BASE_PATH + p;
-      }
+      if (/^https?:\/\//i.test(p)) a.href = p;
+      else a.href = BASE_PATH + p;
     });
   })();
 
-  // ====== View Switching (SC200 <-> SC210) ======
-  const viewChat = document.getElementById('view-chat');
-  const viewConnect = document.getElementById('view-connect');
-  const btnConnect = document.getElementById('btnConnectChannel');
-  const btnBack = document.getElementById('btnBackToChat');
+  // =======================
+  // Email screen switching
+  // hash: #inbox | #gmail | #outlook | #smtp
+  // =======================
+  const VIEW_IDS = {
+    inbox: "view-inbox",
+    gmail: "view-gmail",
+    outlook: "view-outlook",
+    smtp: "view-smtp",
+  };
 
-  function showView(view) {
-    if (view === 'connect') {
-      viewChat.classList.add('hidden');
-      viewConnect.classList.remove('hidden');
-    } else {
-      viewConnect.classList.add('hidden');
-      viewChat.classList.remove('hidden');
-    }
+  function showEmailView(view, updateHash = true) {
+    const safeView = VIEW_IDS[view] ? view : "inbox";
+    Object.keys(VIEW_IDS).forEach(v => {
+      const el = document.getElementById(VIEW_IDS[v]);
+      if (el) el.classList.add("hidden");
+    });
+    const targetEl = document.getElementById(VIEW_IDS[safeView]);
+    if (targetEl) targetEl.classList.remove("hidden");
+    if (updateHash) location.hash = safeView;
   }
 
-  if (btnConnect) {
-    btnConnect.addEventListener('click', () => showView('connect'));
-  }
-  if (btnBack) {
-    btnBack.addEventListener('click', () => showView('chat'));
+  function syncHashToView() {
+    const h = (location.hash || "").replace("#", "");
+    if (VIEW_IDS[h]) showEmailView(h, false);
+    else showEmailView("inbox", false);
   }
 
-  // Optional: support browser back/forward with hash
-  function syncHash() {
-    const h = (location.hash || '').replace('#','');
-    if (h === 'connect') showView('connect');
-    else showView('chat');
-  }
-  window.addEventListener('hashchange', syncHash);
-  // set default hash when user clicks
-  if (btnConnect) btnConnect.addEventListener('click', () => (location.hash = 'connect'));
-  if (btnBack) btnBack.addEventListener('click', () => (location.hash = 'chat'));
-  syncHash();
+  // Click delegation: any element having data-view-target will switch view
+  document.addEventListener("click", (e) => {
+    const trigger = e.target.closest("[data-view-target]");
+    if (!trigger) return;
+    // Do not hijack sidebar navigation (they are normal links to other files)
+    if (trigger.tagName === "A" && trigger.hasAttribute("data-href")) return;
+
+    e.preventDefault();
+    const target = trigger.getAttribute("data-view-target");
+    if (target) showEmailView(target);
+  });
+
+  // Keyboard support for cards (tabindex=0)
+  document.addEventListener("keydown", (e) => {
+    if (e.key !== "Enter" && e.key !== " ") return;
+    const trigger = document.activeElement?.closest?.("[data-view-target][tabindex]");
+    if (!trigger) return;
+    e.preventDefault();
+    const target = trigger.getAttribute("data-view-target");
+    if (target) showEmailView(target);
+  });
+
+  window.addEventListener("hashchange", syncHashToView);
+  syncHashToView();
 </script>
 </body></html>
-
-
