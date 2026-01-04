@@ -2359,5 +2359,42 @@
   window.showScreen("sc600");
 })();
 </script>
+
+<!-- =========================================================
+  NAV LINKS (same behavior as SC600_pipeline.html)
+  - Sidebar items use href="#" + data-href="...".
+  - This script converts data-href to real href so clicking navigates.
+  - Change BASE_PATH once to match your deploy path.
+========================================================== -->
+<script>
+  // ====== CONFIG ======
+  // If you deploy under a subfolder (e.g., GitHub Pages), set BASE_PATH accordingly.
+  // Examples:
+  //   const BASE_PATH = (location.protocol === "file:") ? "./" : "/compa-crm-public/";
+  //   const BASE_PATH = "./"; // when opening local files in the same folder
+  const BASE_PATH = (location.protocol === "file:") ? "./" : "/compa-crm-public/";
+
+  (function applySidebarLinks() {
+    document.querySelectorAll('aside a[data-href]').forEach(a => {
+      const p = (a.getAttribute('data-href') || '').trim();
+      if (!p) return;
+
+      // allow absolute URLs
+      if (/^https?:\/\//i.test(p)) {
+        a.href = p;
+        return;
+      }
+
+      // if user already put an absolute path like "/xxx/SC200.html"
+      if (p.startsWith('/')) {
+        a.href = p;
+        return;
+      }
+
+      a.href = BASE_PATH + p;
+    });
+  })();
+</script>
+
 </body>
 </html>
